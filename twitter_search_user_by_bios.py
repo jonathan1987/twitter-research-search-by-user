@@ -37,8 +37,9 @@ def twitter_search_bios_result_csv(twitter_search_words,csv_file_to_save):
     f=open(csv_file_to_save,'ar+b')
     writer = csv.writer(f)
     
-    ## to actually get the exact number of users matching the certain words in their bios, here is a website that can
-    # give you an estimate of how many users are there and then past them into the items() function.
+    # to actually get the exact number of users matching the certain words in their bios, here is a website that can
+    # give you an estimate of how many users are there and then past them into the items() function (a little cheat)
+    # https://followerwonk.com/bio
     
     for user in tweepy.Cursor(api.search_users,q=" ".join(twitter_search_words)).items(1000):
     #find if users acutally have the words in their bios
